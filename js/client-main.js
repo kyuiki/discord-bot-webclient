@@ -5,7 +5,7 @@
 
 		client.on('ready', () => {
 			const today = new Date(), date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+' '+today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
-			var format = `(${date}) ${color("[CLIENT READY!] ", "#00ff00")} The client is now ready. Chat in your server discord (with your bot in it) and your bot will fetch it xD`;
+			var format = `(${date}) ${color("[CLIENT READY!] ", "#00ff00")} The client (<b>${client.user.tag}</b>) is now ready. Chat in your server discord (with your bot in it) and your bot will fetch it xD`;
 			texting(format);
 		});
 		client.on('message', msg =>{
