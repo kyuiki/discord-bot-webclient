@@ -8,7 +8,13 @@
 	<link href="https://fonts.googleapis.com/css?family=News+Cycle&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="main">
+	<span class="side-button" onclick="document.getElementById('sidv').style.display = 'block';document.getElementById('sidv').style.opacity = '1'">Open Eval...</span>
+	<div class="side-nav" id="sidv">
+		<h3>Eval  Function...</h3>
+		<textarea id="console" placeholder="Put Discord.js Code here..."></textarea>
+		<button  onclick="evalrun('console');">Run!</button>
+		<button  onclick="this.parentElement.style.display = 'none'" style="background: #f44026">Close Eval...</button>
+	</div>
 	<center>
 	<p>Discord bot Client Console</p>
 	</center>
@@ -17,7 +23,6 @@
 		<div class="msg-line"><span class="hover-line"></span>(Time) [Events] [Type] >> content</div>
 		<div class="msg-line"><span class="hover-line"></span>You can send messages to channel or DM by clicking the <a class="clicky">[<font color="lightgreen">GuildName</font>/<font color="orange">ChannelName</font>]</a> in <font color="lightblue" class="clicky"> [MESSAGE] </font> Event</div>
 	</div>
-</div>
 
 
 
@@ -28,6 +33,6 @@
 	<script type="text/javascript" src=""></script>
 	<script type="text/javascript" src="js/vanilla-main.js">
 	</script>
-	<div class="copyright"><p>Copyright QkieMauln&copy;<br/>Maded using Discord.js and VanillaJS</p></div>
+	<div class="copyright"><p>Copyright QkieMauln&copy;<br/>Made  with Discord.js and VanillaJS</p></div>
 </body>
 </html>

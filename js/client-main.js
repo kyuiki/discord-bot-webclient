@@ -17,7 +17,7 @@
 
 			if(msg.attachments.size){
 				for(var i = 0; i<msg.attachments.size; i++){
-				attach += `<img class="attachment" src="${msg.attachments.array()[i].url}">`
+				attach += `<img class="attach" src="${msg.attachments.array()[i].url}"/>`
 					}
 			}
 			/*if(msg.content.match(/@\d+>/gi)){
@@ -36,7 +36,7 @@
 
 			if(msg.attachments.size){
 				for(var i = 0; i<msg.attachments.size; i++){
-				attach += `<img class="attachment" src="${msg.attachments.array()[i].url}">`
+				attach += `<img class="attach" src="${msg.attachments.array()[i].url}">`
 					}
 			}
 
@@ -60,6 +60,14 @@
 			texting(format);
 
 		});
+
+		function commandeval(c){
+			try{
+			alert("! successfully runned with output!\n"+eval(c))
+		}catch(err){
+			alert("X ERROR! Output :\n"+err.message);
+		}
+		}
 		function del(c, id){
 			if(confirm("Are you sure to delete this message?")){
 			client.channels.get(c).fetchMessage(id).then(msg=>{msg.react('🗑️');msg.delete(1000)}).catch(console.log("ERROR!"));}

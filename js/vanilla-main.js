@@ -10,6 +10,9 @@
             var res = '<font style="color:'+c+'">' + s + '</font>';
             return res;
         }
+        function evalrun(code){
+        	commandeval(document.getElementById(code).value);
+        }
 		function Test(g, o){
 			document.getElementById(o).value = g;
 		}

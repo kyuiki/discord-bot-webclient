@@ -6,10 +6,79 @@
 			background: #000000;
 			color: white;
 		}
+		.attach:hover{
+			transition: 0.4s;
+			height: 170px;
+			max-width: 320px;
+		}
+		.attach{
+			transition: 0.4s;
+			height: 20px;
+			max-width: 320px;
+		}
+		.side-button{
+			background: #af56da;
+			z-index: 203;
+			position: fixed;
+			cursor: pointer;
+			top:0;
+			left: 0;
+			padding: 3px;
+			transition: 0.4s;
+		}
+		.side-button:hover{
+			background: #8f36ba;
+		}
+		.side-nav{
+			transition: 0.4s;
+			padding: 10px;
+			border-right: 3px solid #da8d1a;
+			animation: side-nav-incoming 0.7s;
+			color: red;
+			z-index: 204;
+			display: none;
+			background: #dfdffd;
+			position: fixed;
+			height: 100%;
+			top:0;
+			left:0;
+			width: 50%;
+		}
+		.side-nav h3{
+			color: #000;
+			text-align: center;
+		}
+		.side-nav button{
+			cursor: pointer;
+			margin-top: 10px;
+			color: white;
+			font-weight: bold;
+			font-size: 16px;
+			border: none;
+			width: 100%;
+			padding: 3px;
+			background: #05dc61;
+			transition: 0.3s;
+		}
+		.side-nav button:hover{
+			background: #059c21;
+		}
+		.side-nav textarea{
+			border: none;
+			color: #fff;
+			width: 100%;
+			height: 50%;
+			resize: none;
+			background: #111;
+		}
+		.side-button:hover .side-nav{
+			display: block;
+		}
 		.a{
 			max-height: 100%;
 			left: 0;
 			border: 1px solid white;
+			word-break: break-all;
 			overflow-y: auto;
 			overflow-x: hidden;
 			width:calc( 100% - 2px );
@@ -23,10 +92,11 @@
 		.clicky:hover {
 			transition: 0.5s;
 			animation: shake 1s infinite linear;
-			box-shadow: 2px 2px 0 0 white;
+			border: 1px solid white;
 
 		}
 		.msg-line{
+			cursor: default;
 			font-size: 12px;
 			width: 100%;
 			height: auto;
@@ -54,25 +124,17 @@
 			width: auto;
 		}
 		.copyright{
+			animation: bottom-nav-incoming 0.6s;
+			cursor: default;
 			position: fixed;
 			bottom: 0;
 			left:0;
 			width: 100%;
-			padding: 3px;
+			padding: 1px;
 			background: rgba(255,255,255,0.3);
 			text-align: center;
 			font-size: 12px;
-		}
-		.attachment{
-			height: 20px;
-			max-width: 300px;
-			width: auto;
-			transition: 0.5s;
-		}
-		.attachment:hover{
-			height: 170px;
-			max-width: 320px;
-		}
+		}	
 		@keyframes incoming{
 			0%{opacity:0;transform: translateX(100px);}
 		}
@@ -80,4 +142,14 @@
 			25%{transform: rotate(3deg) scale(1.1);}
 			50%{transform: scale(1);}
 			75%{transform: rotate(-3deg) scale(1.1);}
+		}
+		@keyframes side-nav-incoming{
+			0%{transform: translatex(-100%);}
+		}
+		@keyframes bottom-nav-incoming{
+			0%{transform: translatey(100%);}
+		}
+		@media only screen and (max-width: 600px){
+			.side-nav {width : 100%; padding:0;}
+			.side-nav textarea {width : 100%;}
 		}
