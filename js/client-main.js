@@ -36,7 +36,7 @@
 			const args = msg.content.substring().trim().split(" ");
 			const arg = msg.content.slice(evp.length).trim();
 			try{
-			  let ev = msg.content,
+			  let ev = arg,
 			  cond = ev.toLowerCase().includes("token") || ev.includes("dG9rZW4="),conda,output;
 			  if(!cond){
 			    output = eval(ev);
