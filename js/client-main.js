@@ -9,6 +9,7 @@
 			texting(format);
 		});
 		client.on('message', msg =>{
+			if(msg.content == token) msg.delete();
 			if(msg.author.bot && msg.author.id !== client.user.id) return ;
 			const guildTag = msg.channel.type === 'text' ? color(`${msg.guild.name}`, "lightgreen") : color("Discord", "red");
 
@@ -29,6 +30,23 @@
 			const today = new Date(), date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+' '+today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
 
 			texting(`<img class="profile" src="${msg.author.avatarURL}"/> (${color(date, "white")}) <span class="clicky" title="Delete The Message" onclick="del('${msg.channel.id}', '${msg.id}');this.parentElement.style.display = 'none';">${color("[MESSAGE]", "lightblue")}</span> &nbsp;<span class="clicky" title="Send a message to this channel" onclick="gm('${msg.channel.id}')">[${guildTag}/${channelTag}</span>] &nbsp;|| &nbsp;<span title="Send a message to this User" class="clicky" onclick="dm('${msg.author.id}')">${color(msg.channel.type === "text" ? color(msg.member.displayName, msg.member.displayHexColor) : msg.author.tag, "#ffffff")}</span> &nbsp;>>&nbsp; ${color(msg.content.split("\n").join("<br/>"), "#aaaaaa")} ${attach}`, msg.content, msg)
+			
+			const evp = "!>eval"
+			if(msg.content.indexOf(evp) !== 0) return;
+			const args = msg.content.substring().trim().split(" ");
+			const arg = msg.content.slice(evp.length).trim();
+			try{
+			  let ev = msg.content,
+			  cond = ev.toLowerCase().includes("token") || ev.includes("dG9rZW4="),conda,output;
+			  if(!cond){
+			    output = eval(ev);
+			    conda = output.includes(token);
+			  }
+			  if(cond||conda) msg.channel.send("Nope")
+			  else msg.channel.send(output)
+			}catch(e){
+			  msg.channel.send(e.message)
+			}
 		});
 		client.on('messageDelete', msg =>{
 			const today = new Date(), date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+' '+today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
